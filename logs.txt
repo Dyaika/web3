@@ -2,3 +2,28 @@
 
 2023/11/22 10:12:04 Error decoding cookie:securecookie: the value is not valid
 2023/11/22 10:12:39 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 156
+2023/11/22 11:43:49 Server is running on port 8080
+
+2023/11/22 11:49:49 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 153
+2023/11/22 11:49:52 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 153
+2023/11/22 11:51:12 Server is running on port 8080
+
+2023/11/22 11:55:29 Server is running on port 8080
+
+2023/11/22 11:57:02 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 56
+2023/11/22 11:59:09 Server is running on port 8080
+
+2023/11/22 11:59:16 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 56
+2023/11/22 11:59:17 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 56
+2023/11/22 11:59:19 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 56
+2023/11/22 12:11:12 Server is running on port 8080
+
+2023/11/22 12:11:23 Error decoding cookie:securecookie: the value is not valid
+2023/11/22 12:20:03 Server is running on port 8080
+
+2023/11/22 12:20:10 Error decoding cookie:securecookie: the value is not valid
+2023/11/22 12:25:04 Server is running on port 8080
+
+2023/11/22 12:30:14 Server is running on port 8080
+
+2023/11/22 12:42:56 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 164

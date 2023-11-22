@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/gorilla/securecookie"
@@ -50,40 +51,48 @@ type UserData struct {
 func processHandler(w http.ResponseWriter, r *http.Request) {
 	var cookieName = getEnv("COOKIE_NAME", "userdata")
 	var newResponse string = ""
-	// Получаем данные из Cookie
-	if encoded, err := r.Cookie(cookieName); err == nil {
-		value := make(map[string]string)
-		if err = cookieHandler.Decode(cookieName, encoded.Value, &value); err == nil {
-			newResponse = "Previous Request: " + value["Request"]
+	// Получаем
+
+	switch r.Method {
+	case http.MethodPost:
+		// Обработка нового запроса
+		var data UserData
+		if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			logData("Error decoding JSON:" + err.Error())
+			return
+		}
+
+		// Сохранение
+		if encoded, err := cookieHandler.Encode(cookieName, map[string]string{
+			"Request":  data.Request,
+			"Response": "length=" + strconv.Itoa(len(data.Request)),
+		}); err == nil {
+			expiration := time.Now().Add(365 * 24 * time.Hour)
+			cookie := http.Cookie{
+				Name:    cookieName,
+				Value:   encoded,
+				Expires: expiration,
+			}
+			http.SetCookie(w, &cookie)
 		} else {
-			logData("Error decoding cookie:" + err.Error())
+			logData("Error encoding cookie:" + err.Error())
 		}
-	}
-
-	// Обработка нового запроса
-	var data UserData
-	if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		logData("Error decoding JSON:" + err.Error())
-		return
-	}
-
-	// Сохранение данных в Cookie
-	if encoded, err := cookieHandler.Encode(cookieName, map[string]string{
-		"Request":  data.Request,
-		"Response": data.Response,
-	}); err == nil {
-		expiration := time.Now().Add(365 * 24 * time.Hour)
-		cookie := http.Cookie{
-			Name:    cookieName,
-			Value:   encoded,
-			Expires: expiration,
+	case http.MethodGet:
+		time.Sleep(time.Second * 2)
+		if encoded, err := r.Cookie(cookieName); err == nil {
+			value := make(map[string]string)
+			if err = cookieHandler.Decode(cookieName, encoded.Value, &value); err == nil {
+				newResponse = "Data: " + value["Request"] + " : " + value["Response"]
+			} else {
+				newResponse = "data corrupted"
+				logData("Error decoding cookie:" + err.Error())
+			}
+		} else {
+			newResponse = "no data"
 		}
-		http.SetCookie(w, &cookie)
-	} else {
-		logData("Error encoding cookie:" + err.Error())
-	}
 
+	}
 	// Отправка ответа
 	w.Write([]byte("Request Processed\n" + newResponse))
 }
