@@ -2,15 +2,39 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/joho/godotenv"
+	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/securecookie"
 )
 
 func main() {
+	loadEnv()
 	http.HandleFunc("/process", processHandler)
-	http.ListenAndServe(":8080", nil)
+
+	port := getEnv("PORT", "8080")
+
+	log.Printf("Server is running on port %s...\n", port)
+	http.ListenAndServe(":"+port, nil)
+}
+
+// Получение .env
+func loadEnv() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+}
+
+// Получение переменных из окружения
+func getEnv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
+	}
+	return fallback
 }
 
 var cookieHandler = securecookie.New(
@@ -24,12 +48,12 @@ type UserData struct {
 }
 
 func processHandler(w http.ResponseWriter, r *http.Request) {
-	// Получаем данные из Cookie
+	var cookieName = getEnv("COOKIE_NAME", "userdata")
 	var newResponse string = ""
-	if encoded, err := r.Cookie("userdata"); err == nil {
+	// Получаем данные из Cookie
+	if encoded, err := r.Cookie(cookieName); err == nil {
 		value := make(map[string]string)
-		if err = cookieHandler.Decode("userdata", encoded.Value, &value); err == nil {
-			// Ваши действия с данными, например, отправка ответа
+		if err = cookieHandler.Decode(cookieName, encoded.Value, &value); err == nil {
 			newResponse = "Previous Request: " + value["Request"]
 		}
 	}
@@ -41,17 +65,14 @@ func processHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Ваша логика обработки данных
-	data.Response = "Your Response"
-
 	// Сохранение данных в Cookie
-	if encoded, err := cookieHandler.Encode("userdata", map[string]string{
+	if encoded, err := cookieHandler.Encode(cookieName, map[string]string{
 		"Request":  data.Request,
 		"Response": data.Response,
 	}); err == nil {
 		expiration := time.Now().Add(365 * 24 * time.Hour)
 		cookie := http.Cookie{
-			Name:    "userdata",
+			Name:    cookieName,
 			Value:   encoded,
 			Expires: expiration,
 		}
