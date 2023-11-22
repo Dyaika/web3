@@ -1,0 +1,4 @@
+2023/11/22 10:11:48 Server is running on port 8080
+
+2023/11/22 10:12:04 Error decoding cookie:securecookie: the value is not valid
+2023/11/22 10:12:39 Error decoding cookie:securecookie: base64 decode failed - caused by: illegal base64 data at input byte 156

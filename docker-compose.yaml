@@ -3,6 +3,8 @@ version: '3'
 services:
   go-service:
     build: ./go-cookie-service
+    volumes:
+      - ./logs.txt:/app/logs.txt
     environment:
       - PORT=8080
 
