@@ -5,8 +5,6 @@ services:
     build: ./go-cookie-service
     volumes:
       - ./logs.txt:/app/logs.txt
-    environment:
-      - PORT=8080
 
   nginx:
     image: nginx:latest
@@ -16,3 +14,14 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - go-service
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
