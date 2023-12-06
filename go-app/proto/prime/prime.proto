@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package prime;
+option go_package = ".";
+import "google/api/annotations.proto";
+
+service CheckPrime {
+  rpc CheckPrime (isPrimeRequest) returns (isPrimeResponse){
+    option (google.api.http) = {
+      post: "/is_prime"
+      body: "*"
+    };
+  };
+}
+
+message isPrimeRequest {
+  int32 message = 1;
+}
+
+message isPrimeResponse {
+  string answer = 1;
+}

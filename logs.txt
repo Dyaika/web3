@@ -1,18 +1,18 @@
-
-2023/11/29 08:19:35 Server is running on port 8080
-
-2023/11/29 08:54:33 Error: server selection error: server selection timeout, current topology: { Type: Unknown, Servers: [{ Addr: localhost:27017, Type: Unknown, Last error: dial tcp 127.0.0.1:27017: connect: connection refused }, ] }
-2023/11/29 11:58:57 Server is running on port 8080
-
-2023/11/29 11:59:46 Server is running on port 8080
-
-2023/11/29 11:59:50 Server is running on port 8080
-
-2023/11/29 12:01:52 Server is running on port 8080
-
-2023/11/29 12:04:12 Server is running on port 8080
-
-2023/11/29 12:18:07 Server is running on port 8080
-
-2023-11-29T12:52:13Z Error: file with given parameters not found
-2023-11-29T12:52:13Z Error: file with given parameters not found
+2023-12-06T13:31:52Z Length server started on port 50055
+2023-12-06T13:31:52Z gRPC Gateway is running on port 8080
+2023-12-06T13:31:52Z Prime server started on port 50050
+2023-12-06T13:34:14Z Length server started on port 50055
+2023-12-06T13:34:14Z gRPC Gateway is running on port 8080
+2023-12-06T13:34:14Z Prime server started on port 50050
+2023-12-06T13:37:04Z Length server started on port 50055
+2023-12-06T13:37:04Z gRPC Gateway is running on port 8080
+2023-12-06T13:37:04Z Prime server started on port 50050
+2023-12-06T13:38:03Z Length server started on port 50055
+2023-12-06T13:38:03Z gRPC Gateway is running on port 8080
+2023-12-06T13:38:03Z Prime server started on port 50050
+2023-12-06T13:39:22Z Prime server started on port 50050
+2023-12-06T13:39:22Z gRPC Gateway is running on port 8080
+2023-12-06T13:39:22Z Length server started on port 50055
+2023-12-06T13:40:02Z gRPC Gateway is running on port 8080
+2023-12-06T13:40:02Z Length server started on port 50055
+2023-12-06T13:40:02Z Prime server started on port 50050

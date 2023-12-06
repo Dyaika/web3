@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package prime;
+option go_package = ".";
+import "google/api/annotations.proto";
+
+service CalcLength {
+  rpc CalcLength (LengthRequest) returns (LengthResponse){
+    option (google.api.http) = {
+      post: "/length"
+      body: "*"
+    };
+  };
+}
+
+message LengthRequest {
+  string message = 1;
+}
+
+message LengthResponse {
+  string answer = 1;
+}

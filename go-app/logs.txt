@@ -1,40 +1,12 @@
-2023/11/29 10:46:42 Server is running on port 8080
-
-2023/11/29 11:38:37 Что-то пошло не так: the provided hex string is not a valid ObjectID
-2023/11/29 11:42:54 Что-то пошло не так: request Content-Type isn't multipart/form-data
-2023/11/29 11:43:38 Что-то пошло не так: request Content-Type isn't multipart/form-data
-2023/11/29 11:46:45 Что-то пошло не так: the provided hex string is not a valid ObjectID
-2023/11/29 15:06:58 Server is running on port 8080
-
-2023/11/29 15:08:34 Server is running on port 8080
-
-2023/11/29 15:09:53 Server is running on port 8080
-
-2023/11/29 15:11:20 Server is running on port 8080
-
-2023/11/29 15:12:58 Server is running on port 8080
-
-2023/11/29 15:14:08 Server is running on port 8080
-
-2023/11/29 15:22:28 Server is running on port 8080
-
-2023/11/29 15:23:53 Server is running on port 8080
-
-2023/11/29 15:24:24 Server is running on port 8080
-
-2023/11/29 15:24:40 1
-2023/11/29 15:24:40 Server is running on port 8080
-
-2023/11/29 15:25:21 Server is running on port 8080
-
-2023/11/29 15:25:35 1
-2023/11/29 15:25:35 Server is running on port 8080
-
-2023/11/29 15:27:30 Server is running on port 8080
-
-2023/11/29 15:31:05 Server is running on port 8080
-
-2023-11-29T15:33:27+03:00 Server is running on port 8080
-
-2023-11-29T15:36:10+03:00 Error: server selection error: server selection timeout, current topology: { Type: Unknown, Servers: [{ Addr: mongodb:27017, Type: Unknown, Last error: dial tcp: lookup mongodb: no such host }, ] }
-2023-11-29T15:36:10+03:00 Error: server selection error: server selection timeout, current topology: { Type: Unknown, Servers: [{ Addr: mongodb:27017, Type: Unknown, Last error: dial tcp: lookup mongodb: no such host }, ] }
+2023-12-06T16:20:12+03:00 Length server started on port 50055
+2023-12-06T16:20:12+03:00 Prime server started on port 50050
+2023-12-06T16:22:44+03:00 Length server started on port 50055
+2023-12-06T16:22:44+03:00 Prime server started on port 50050
+2023-12-06T16:22:44+03:00 gRPC Gateway is running on port 8080
+2023-12-06T16:25:54+03:00 gRPC Gateway is running on port 8080
+2023-12-06T16:25:54+03:00 Length server started on port 50055
+2023-12-06T16:25:54+03:00 Prime server started on port 50050
+2023-12-06T16:36:05+03:00 Prime server started on port 50050
+2023-12-06T16:36:05+03:00 Length server started on port 50055
+2023-12-06T16:36:05+03:00 gRPC Gateway is running on port 8080
+2023-12-06T16:36:05+03:00 ERROR: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.

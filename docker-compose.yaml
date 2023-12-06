@@ -6,6 +6,8 @@ services:
     build:
       context: ./go-app
       dockerfile: Dockerfile
+    volumes:
+      - ./logs.txt:/app/logs.txt
     ports:
       - "8080:8080"
       
